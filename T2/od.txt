@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST19 - Leading Stock Broker in Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#37517E',
+                        secondary: '#47B2E4',
+                        dark: '#1F3E72',
+                        light: '#F3F5FA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Top Bar -->
+    <div class="bg-primary text-white text-sm py-2 px-4 flex justify-between items-center">
+        <div class="flex space-x-4">
+            <span><i class="fas fa-phone-alt mr-1"></i> +977 1-4782309</span>
+            <span><i class="fas fa-envelope mr-1"></i> info@nist19.com</span>
+        </div>
+        <div class="flex space-x-3">
+            <a href="#" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto" src="https://via.placeholder.com/150x50?text=NIST19" alt="NIST19 Logo">
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-primary hover:text-secondary px-3 py-2 font-medium">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute z-10 left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 hidden group-hover:block">
+                            <a href="#services" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">All Services</a>
+                            <a href="#sales" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Sales Orders</a>
+                            <a href="#purchase" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Purchase Orders</a>
+                            <a href="#ckyc" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">CKYC</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#commissions" class="text-primary hover:text-secondary px-3 py-2 font-medium">Commissions</a>
+                    <a href="#about" class="text-primary hover:text-secondary px-3 py-2 font-medium">About Us</a>
+                    <a href="#partners" class="text-primary hover:text-secondary px-3 py-2 font-medium">Payment Partners</a>
+                    <a href="#market" class="text-primary hover:text-secondary px-3 py-2 font-medium">Market</a>
+                    <a href="#activities" class="text-primary hover:text-secondary px-3 py-2 font-medium">Activities</a>
+                    <a href="#contact" class="text-primary hover:text-secondary px-3 py-2 font-medium">Contact</a>
+                    
+                    <div class="relative group">
+                        <button class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center">
+                            Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute z-10 left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-1 hidden group-hover:block">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">KYC Individual (Normal)</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">KYC Individual (Editable)</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">KYC Company (Editable)</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Online Trading Agreement (Editable)</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">TMS Request</a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative group">
+                        <button class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center">
+                            Tools <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute z-10 left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-1 hidden group-hover:block">
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Share Calculator</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Weighted Average</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Commission Calculator</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white">Market Analysis</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-primary hover:text-secondary focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Home</a>
+                
+                <div class="relative">
+                    <button id="services-menu-button" class="w-full text-left px-3 py-2 text-base font-medium text-primary hover:text-secondary flex justify-between items-center">
+                        Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="services-menu" class="hidden pl-4">
+                        <a href="#services" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">All Services</a>
+                        <a href="#sales" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Sales Orders</a>
+                        <a href="#purchase" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Purchase Orders</a>
+                        <a href="#ckyc" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">CKYC</a>
+                    </div>
+                </div>
+                
+                <a href="#commissions" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Commissions</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">About Us</a>
+                <a href="#partners" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Payment Partners</a>
+                <a href="#market" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Market</a>
+                <a href="#activities" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Activities</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary">Contact</a>
+                
+                <div class="relative">
+                    <button id="downloads-menu-button" class="w-full text-left px-3 py-2 text-base font-medium text-primary hover:text-secondary flex justify-between items-center">
+                        Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="downloads-menu" class="hidden pl-4">
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">KYC Individual (Normal)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">KYC Individual (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">KYC Company (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Online Trading Agreement (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">TMS Request</a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <button id="tools-menu-button" class="w-full text-left px-3 py-2 text-base font-medium text-primary hover:text-secondary flex justify-between items-center">
+                        Tools <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="tools-menu" class="hidden pl-4">
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Share Calculator</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Weighted Average</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Commission Calculator</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary">Market Analysis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-white py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">NIST19: Your Trusted Stock Broker</h1>
+                    <p class="text-xl mb-6">20+ years of expertise in Nepal's stock market and securities trading.</p>
+                    <p class="text-lg mb-8 italic">"To be the leading provider of Brokering and Invest Portfolio Management services in Nepal and overseas securities investments."</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition duration-300">Get Started</a>
+                        <a href="#services" class="border-2 border-white hover:border-secondary hover:text-secondary text-white px-6 py-3 rounded-md font-medium transition duration-300">Our Services</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <img src="https://via.placeholder.com/500x400?text=Stock+Market" alt="Stock Market" class="rounded-lg shadow-xl floating">
+                        <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-lg text-primary">
+                            <div class="text-center">
+                                <p class="text-sm font-semibold">NEPSE Today</p>
+                                <p class="text-2xl font-bold">2,100.45 <span class="text-green-500 text-sm">+1.2%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive stock broking services tailored to meet your investment needs in Nepal's dynamic market.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Sales Orders -->
+                <div id="sales" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Sales Orders</h3>
+                    <p class="text-gray-600 mb-4">Efficiently sell stocks on request for our customers with our streamlined process.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Real-time order execution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Competitive pricing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Instant confirmation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Purchase Orders -->
+                <div id="purchase" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-shopping-cart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Purchase Orders</h3>
+                    <p class="text-gray-600 mb-4">Execute stock purchases on behalf of our customers with precision and speed.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Market and limit orders</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Portfolio diversification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Expert recommendations</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- CKYC -->
+                <div id="ckyc" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-id-card text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">Central KYC (CKYC)</h3>
+                    <p class="text-gray-600 mb-4">Simplified onboarding process with centralized KYC verification.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Faster onboarding</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Reduced paperwork</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Enhanced security</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commissions Section -->
+    <section id="commissions" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Commission Structure</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Transparent and competitive commission rates for all your trading needs.</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Instrument</th>
+                            <th class="py-3 px-4 text-left">Commission Rate</th>
+                            <th class="py-3 px-4 text-left">Minimum Commission</th>
+                            <th class="py-3 px-4 text-left">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4">Equity</td>
+                            <td class="py-4 px-4">0.40% of transaction amount</td>
+                            <td class="py-4 px-4">Rs. 25</td>
+                            <td class="py-4 px-4">For Rs. 50,000 trade: Rs. 200</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4">Government Bonds</td>
+                            <td class="py-4 px-4">0.10% of transaction amount</td>
+                            <td class="py-4 px-4">Rs. 50</td>
+                            <td class="py-4 px-4">For Rs. 1,00,000 trade: Rs. 100</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4">Corporate Bonds & Debentures</td>
+                            <td class="py-4 px-4">0.20% of transaction amount</td>
+                            <td class="py-4 px-4">Rs. 50</td>
+                            <td class="py-4 px-4">For Rs. 75,000 trade: Rs. 150</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4">Close-End Bonds</td>
+                            <td class="py-4 px-4">0.30% of transaction amount</td>
+                            <td class="py-4 px-4">Rs. 50</td>
+                            <td class="py-4 px-4">For Rs. 60,000 trade: Rs. 180</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold text-primary mb-3">Additional Fees</h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>DP Fee:</strong> Rs. 25 per script (charged by CDSC)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>SEBON Fee:</strong> 0.015% of transaction amount (applicable on equity only)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>Capital Gain Tax:</strong> As per government regulations</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold text-primary mb-6">About NIST19</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2003, NIST19 has grown to become one of Nepal's most trusted stock brokerage firms with a strong presence across the country.</p>
+                    <p class="text-gray-600 mb-6">Our team of experienced professionals is dedicated to providing exceptional service and personalized investment solutions to both individual and institutional clients.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Industry Recognition</h4>
+                                <p class="text-gray-600">Awarded "Best Brokerage Firm" by Nepal Stock Exchange for 3 consecutive years.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Client Base</h4>
+                                <p class="text-gray-600">Serving over 15,000 active clients with diverse investment portfolios.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">Partnerships</h4>
+                                <p class="text-gray-600">Strategic alliances with major banks and financial institutions in Nepal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-primary mb-4">Our Team</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <img src="https://via.placeholder.com/150?text=Director" alt="Director" class="w-24 h-24 rounded-full mx-auto mb-2">
+                                <h4 class="font-medium text-primary">Mr. Amit Kumar</h4>
+                                <p class="text-sm text-gray-600">Director</p>
+                                <p class="text-xs text-gray-500">20+ years experience</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://via.placeholder.com/150?text=Analyst" alt="Analyst" class="w-24 h-24 rounded-full mx-auto mb-2">
+                                <h4 class="font-medium text-primary">Ms. Priya Sharma</h4>
+                                <p class="text-sm text-gray-600">Senior Analyst</p>
+                                <p class="text-xs text-gray-500">CFA Charterholder</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://via.placeholder.com/150?text=Manager" alt="Manager" class="w-24 h-24 rounded-full mx-auto mb-2">
+                                <h4 class="font-medium text-primary">Mr. Rajesh Thapa</h4>
+                                <p class="text-sm text-gray-600">Operations Manager</p>
+                                <p class="text-xs text-gray-500">15+ years experience</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://via.placeholder.com/150?text=Advisor" alt="Advisor" class="w-24 h-24 rounded-full mx-auto mb-2">
+                                <h4 class="font-medium text-primary">Ms. Sunita Gurung</h4>
+                                <p class="text-sm text-gray-600">Investment Advisor</p>
+                                <p class="text-xs text-gray-500">MBA in Finance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Partners Section -->
+    <section id="partners" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Payment Partners</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We've partnered with leading financial institutions to provide seamless payment solutions.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=NIC+Asia" alt="NIC Asia Bank" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=NMB+Bank" alt="NMB Bank" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=Global+IME" alt="Global IME Bank" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=Himalayan+Bank" alt="Himalayan Bank" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=Khalti" alt="Khalti" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=eSewa" alt="eSewa" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=IME+Pay" alt="IME Pay" class="h-12">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300">
+                    <img src="https://via.placeholder.com/150x60?text=ConnectIPS" alt="ConnectIPS" class="h-12">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Section -->
+    <!-- <section id="market" class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Market Data</h2>
+                <p class="text-lg max-w-3xl mx-auto">Real-time financial indices and market trends to inform your investment decisions.</p>
+            </div>
+            
+            <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-primary">NEPSE Index</h3>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold">2,100.45</p>
+                        <p class="text-green-500">+25.60 (1.2%) <i class="fas fa-arrow-up ml-1"></i></p>
+                    </div>
+                </div> -->
+                
+                <!-- Placeholder for chart -->
+                <!-- <div class="bg-gray-100 h-64 rounded flex items-center justify-center">
+                    <p class="text-gray-500">Interactive Chart Placeholder</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">Today's High</p>
+                        <p class="font-semibold">2,105.75</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">Today's Low</p>
+                        <p class="font-semibold">2,085.30</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">52 Week High</p>
+                        <p class="font-semibold">2,350.20</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">52 Week Low</p>
+                        <p class="font-semibold">1,850.75</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-4">Sector Indices</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white text-gray-800 rounded-lg overflow-hidden">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Sector</th>
+                            <th class="py-3 px-4 text-left">Index</th>
+                            <th class="py-3 px-4 text-left">Change</th>
+                            <th class="py-3 px-4 text-left">% Change</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">Banking</td>
+                            <td class="py-3 px-4">1,250.45</td>
+                            <td class="py-3 px-4 text-green-500">+15.20</td>
+                            <td class="py-3 px-4 text-green-500">+1.2%</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">Development Bank</td>
+                            <td class="py-3 px-4">1,850.75</td>
+                            <td class="py-3 px-4 text-green-500">+8.50</td>
+                            <td class="py-3 px-4 text-green-500">+0.5%</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">Finance</td>
+                            <td class="py-3 px-4">1,150.30</td>
+                            <td class="py-3 px-4 text-red-500">-5.75</td>
+                            <td class="py-3 px-4 text-red-500">-0.5%</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">HydroPower</td>
+                            <td class="py-3 px-4">1,350.60</td>
+                            <td class="py-3 px-4 text-green-500">+12.30</td>
+                            <td class="py-3 px-4 text-green-500">+0.9%</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">Insurance</td>
+                            <td class="py-3 px-4">2,050.25</td>
+                            <td class="py-3 px-4 text-green-500">+18.45</td>
+                            <td class="py-3 px-4 text-green-500">+0.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#" class="inline-flex items-center text-secondary hover:text-white">
+                    View Detailed Market Analysis
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Activities</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Engaging with our community and sharing knowledge about stock market investments.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Activity 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=Investor+Workshop" alt="Investor Workshop" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Investor Education Workshop</h3>
+                        <p class="text-gray-600 mb-4">Quarterly workshops to educate new investors about stock market fundamentals and investment strategies.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 15 June 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=Annual+Meet" alt="Annual Meet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Annual Investor Meet</h3>
+                        <p class="text-gray-600 mb-4">Our flagship event bringing together investors, analysts, and industry experts to discuss market trends.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 28 March 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=CSR+Initiative" alt="CSR Initiative" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Financial Literacy Program</h3>
+                        <p class="text-gray-600 mb-4">Corporate social responsibility initiative to promote financial literacy in rural communities.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 10 May 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=Training" alt="Training" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Employee Training Program</h3>
+                        <p class="text-gray-600 mb-4">Regular training sessions to keep our team updated with the latest market regulations and technologies.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 5 April 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=Seminar" alt="Seminar" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Women Investors Seminar</h3>
+                        <p class="text-gray-600 mb-4">Special seminar designed to encourage and empower women to participate in stock market investments.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 8 March 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <img src="https://via.placeholder.com/600x400?text=Award" alt="Award" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Industry Excellence Award</h3>
+                        <p class="text-gray-600 mb-4">Celebrating our recognition as "Best Brokerage Firm" at the Nepal Financial Awards 2023.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 20 January 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                    View All Activities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Presence Section -->
+    <section id="presence" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Presence</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Visit our offices in Kathmandu and Biratnagar for personalized investment services.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Kathmandu Office -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <!-- Placeholder for map -->
+                        <div class="text-center">
+                            <i class="fas fa-map-marker-alt text-4xl text-primary mb-2"></i>
+                            <p class="text-gray-600">Kathmandu Office Map</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-4">Kathmandu Head Office</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                                <p>NIST19 Building, Kamaladi, Kathmandu, Nepal</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-secondary mt-1 mr-3"></i>
+                                <p>+977 1-4782309, 4782310</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-secondary mt-1 mr-3"></i>
+                                <p>kathmandu@nist19.com</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-secondary mt-1 mr-3"></i>
+                                <p>Sunday-Friday: 10:00 AM - 5:00 PM<br>Closed on public holidays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Biratnagar Office -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <!-- Placeholder for map -->
+                        <div class="text-center">
+                            <i class="fas fa-map-marker-alt text-4xl text-primary mb-2"></i>
+                            <p class="text-gray-600">Biratnagar Office Map</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-4">Biratnagar Branch Office</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                                <p>NIST19 Complex, Rani Road, Biratnagar, Nepal</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-secondary mt-1 mr-3"></i>
+                                <p>+977 21-460123, 460124</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-secondary mt-1 mr-3"></i>
+                                <p>biratnagar@nist19.com</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-secondary mt-1 mr-3"></i>
+                                <p>Sunday-Friday: 10:00 AM - 5:00 PM<br>Closed on public holidays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+                <p class="text-lg max-w-3xl mx-auto">Get in touch with our team for any inquiries or assistance with your investments.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                            <select id="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary">
+                                <option value="">Select a subject</option>
+                                <option value="account">Account Inquiry</option>
+                                <option value="trading">Trading Services</option>
+                                <option value="kyc">KYC Process</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+                        </div>
+                        <button type="submit" class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium w-full transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Live Chat Support</h3>
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                            <p class="mb-4">Our representatives are available to chat from Sunday to Friday, 10:00 AM to 5:00 PM.</p>
+                            <button class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                                <i class="fas fa-comment-dots mr-2"></i> Start Live Chat
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Head Office</h4>
+                                    <p>NIST19 Building, Kamaladi, Kathmandu, Nepal</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <p>+977 1-4782309, 4782310</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p>info@nist19.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Working Hours</h4>
+                                    <p>Sunday-Friday: 10:00 AM - 5:00 PM</p>
+                                    <p>Closed on public holidays</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Grievance Handling Officer</h3>
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                            <p class="font-medium">Mr. Amit Kumar Agrahari</p>
+                            <p class="mb-2">Phone: +977 9767224116</p>
+                            <p>Email: communications@nist19.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">About NIST19</h3>
+                    <p class="mb-4">A leading stock brokerage firm in Nepal with over 20 years of experience in securities trading and portfolio management.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Useful Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-secondary">Security Board</a></li>
+                        <li><a href="#" class="hover:text-secondary">Stock Exchange</a></li>
+                        <li><a href="#" class="hover:text-secondary">CDSC</a></li>
+                        <li><a href="#" class="hover:text-secondary">Mero Share</a></li>
+                        <li><a href="#" class="hover:text-secondary">UN Security Council Targeted Sanction List</a></li>
+                        <li><a href="#" class="hover:text-secondary">APG Sanction List</a></li>
+                        <li><a href="#" class="hover:text-secondary">National Risk Assessment Report</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Our Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#sales" class="hover:text-secondary">Sell Stocks</a></li>
+                        <li><a href="#purchase" class="hover:text-secondary">Purchase Stocks</a></li>
+                        <li><a href="#ckyc" class="hover:text-secondary">Portfolio Management</a></li>
+                        <li><a href="#ckyc" class="hover:text-secondary">CKYC</a></li>
+                        <li><a href="#services" class="hover:text-secondary">Other Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-secondary"></i>
+                            <span>NIST19 Building, Kamaladi, Kathmandu, Nepal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-secondary"></i>
+                            <span>+977 1-4782309, 4782310</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-secondary"></i>
+                            <span>info@nist19.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-secondary"></i>
+                            <span>Sunday-Friday: 10:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; Copyright @NIST19. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-secondary text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Mobile submenu toggles
+        const servicesMenuButton = document.getElementById('services-menu-button');
+        const servicesMenu = document.getElementById('services-menu');
+        const downloadsMenuButton = document.getElementById('downloads-menu-button');
+        const downloadsMenu = document.getElementById('downloads-menu');
+        const toolsMenuButton = document.getElementById('tools-menu-button');
+        const toolsMenu = document.getElementById('tools-menu');
+        
+        servicesMenuButton.addEventListener('click', () => {
+            servicesMenu.classList.toggle('hidden');
+        });
+        
+        downloadsMenuButton.addEventListener('click', () => {
+            downloadsMenu.classList.toggle('hidden');
+        });
+        
+        toolsMenuButton.addEventListener('click', () => {
+            toolsMenu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Form submission (placeholder)
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+        
+        // Live chat button (placeholder)
+        const liveChatButton = document.querySelector('.bg-secondary.hover\\:bg-blue-600');
+        if (liveChatButton) {
+            liveChatButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Our chat support is currently offline. Please try again during business hours or contact us via phone or email.');
+            });
+        }
+    </script>
+</body>
+</html>
