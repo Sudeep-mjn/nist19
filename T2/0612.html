@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIST19 - Leading Stock Broker in Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .bg-white {
+            background-color: #2d3748;
+        }
+
+        body.dark-mode .text-gray-800,
+        body.dark-mode .text-gray-700,
+        body.dark-mode .text-gray-600 {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .bg-gray-50 {
+            background-color: #4a5568;
+        }
+
+        body.dark-mode .border-gray-200 {
+            border-color: #4a5568;
+        }
+
+        body.dark-mode .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Notice section styles */
+        .notice-container {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 300px;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .notice-container.open {
+            transform: translateX(0);
+        }
+
+        .notice-toggle {
+            position: fixed;
+            right: 3px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            background-color: #37517E;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            z-index: 1001;
+            transition: right 0.3s ease;
+        }
+
+        .notice-toggle.open {
+            right: 300px;
+        }
+
+        .notice-container.open + .notice-toggle {
+            right: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .notice-container {
+                width: 250px;
+            }
+            
+            .notice-toggle {
+                right: 250px;
+            }
+            
+            .notice-container.open + .notice-toggle {
+                right: 250px;
+            }
+        }
+
+    
+        
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#37517E',
+                        secondary: '#47B2E4',
+                        dark: '#1F3E72',
+                        light: '#F3F5FA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    </head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="fixed inset-0 bg-primary flex items-center justify-center z-50 transition-opacity duration-500">
+        <img src="images/logo.jpg" alt="NIST19 Logo" class="w-60 h-60 animate-pulse " style=" border-radius: 10%;"> 
+        <h1 style="padding-left: 10px; font-size: 50px;color: white; font-weight: bold; " class="animate-pulse" >नेपाल ईन्भेष्टमेण्ट एण्ड सेक्युरिटिज ट्रेडिङ्ग (प्रा.) लि.</h1><br>
+
+    </div>
+    
+    <!-- Notice Toggle Button -->
+    <div class="notice-toggle" id="noticeToggle">
+        <i class="fas fa-bell mr-2"></i> Notices
+    </div>
+
+    <!-- Notice Section -->
+    <div class="notice-container" id="noticeContainer">
+        <div class="p-5">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-primary">Latest Notices</h3>
+                <button id="closeNotice" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Notice 1 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">Market Holiday</h4>
+                        <span class="text-xs text-gray-500">2023-11-15</span>
+                    </div>
+                    <p class="text-sm text-gray-600">The stock market will remain closed on November 23rd due to a national holiday.</p>
+                </div>
+                
+                <!-- Notice 2 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">New Trading Policy</h4>
+                        <span class="text-xs text-gray-500">2023-11-10</span>
+                    </div>
+                    <p class="text-sm text-gray-600">SEBON has introduced new trading policies effective from December 1st. Please review the changes.</p>
+                    <a href="#" class="text-secondary text-xs mt-2 inline-block">Read More →</a>
+                </div>
+                
+                <!-- Notice 3 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">System Maintenance</h4>
+                        <span class="text-xs text-gray-500">2023-11-05</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Our online trading platform will be unavailable from 10 PM to 2 AM on November 12th for scheduled maintenance.</p>
+                </div>
+                
+                <!-- Notice 4 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">Investor Workshop</h4>
+                        <span class="text-xs text-gray-500">2023-10-28</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Join our free investor education workshop on December 5th at our Kathmandu office.</p>
+                    <a href="#" class="text-secondary text-xs mt-2 inline-block">Register Now →</a>
+                </div>
+                
+                <!-- Notice 5 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">New Branch Opening</h4>
+                        <span class="text-xs text-gray-500">2023-10-20</span>
+                    </div>
+                    <p class="text-sm text-gray-600">We're pleased to announce the opening of our new branch in Pokhara from November 1st.</p>
+                </div>
+                
+                <!-- Notice 6 -->
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-secondary">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-semibold text-primary">Dividend Announcement</h4>
+                        <span class="text-xs text-gray-500">2023-10-15</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Nabil Bank has announced 25% dividend for the fiscal year 2079/80.</p>
+                    <a href="#" class="text-secondary text-xs mt-2 inline-block">Details →</a>
+                </div>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <a href="#" class="text-primary text-sm font-medium hover:underline">View All Notices</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="bg-primary text-white text-sm py-2 px-4 flex justify-between items-center">
+        <div class="flex space-x-4">
+            <span><i class="fas fa-phone-alt mr-1"></i> +977 1-4782309</span>
+            <span><i class="fas fa-envelope mr-1"></i> info@nist19.com</span>
+        </div>
+        <!-- <img src="images/logo.jpg" style="width: 100px; height:100px;"class=" mr-1" alt="logo"> -->
+        <div class="flex space-x-3">
+            <a href="https://www.facebook.com/nist19/?locale=ne_NP" target="_blank" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+   <!-- Navigation -->
+<nav class="bg-white shadow-md sticky top-0 z-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <a href="#home" class="flex-shrink-0 flex items-center">
+                    <img style="width: 65px; height: 65px;" src="images/logo.jpg" alt="NIST19 Logo">
+                    <p style="margin-left:10px ; width: auto; font-style:bold ;">नेपाल ईन्भेष्टमेण्ट एण्ड सेक्युरिटिज ट्रेडिङ्ग (प्रा.) लि.</p>
+                </a>
+            </div>
+            <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                <a href="#home" class="text-primary hover:text-secondary px-3 py-2 font-medium dark:text-white">Home</a>
+                
+                <div class="relative group">
+                    <button class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center dark:text-white">
+                        Services <i class="fas fa-chevron-down ml-1 text-xs"></i> 
+                    </button>
+                    <div class="absolute z-10 left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 hidden group-hover:block dark:bg-gray-700">
+                        <a href="#services" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">All Services</a>
+                        <a href="https://tms19.nepsetms.com.np/client-registration" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">Online Account Opening</a>
+                        <a href="#purchase" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">Purchase Orders</a>
+                        <a href="#ckyc" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">CKYC</a>
+                    </div>
+                </div>
+                
+                <a href="#about" class="text-primary hover:text-secondary px-3 py-2 font-medium dark:text-white">About Us</a>
+                <a href="#contact" class="text-primary hover:text-secondary px-3 py-2 font-medium dark:text-white">Contact</a>
+                
+                <div class="relative group">
+                    <button class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center dark:text-white">
+                        Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute z-10 left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-1 hidden group-hover:block dark:bg-gray-700">
+                        <a href="pdf/KYC-individual-normal.pdf" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">KYC Individual (Normal)</a>
+                        <a href="pdf/Agriment_new_individual.pdf" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">KYC Individual (Editable)</a>
+                        <a href="pdf/company-kyc-form.pdf" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">KYC Company (Editable)</a>
+                        <a href="pdf/new_Natural_Person_details.pdf" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">Online Trading Agreement (Editable)</a>
+                        <a href="pdf/TMS-Request.pdf" target="_blank" class="block px-4 py-2 text-gray-800 hover:bg-primary hover:text-white dark:text-gray-200">TMS Request</a>
+                    </div>
+                </div>
+
+                <!-- FAQ Button -->
+                <a href="#faq" class="text-primary hover:text-secondary px-3 py-2 font-medium dark:text-white" >FAQ</a>
+
+                <!-- Language Toggle Button -->
+                <button id="language-toggle" class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center dark:text-white">
+                    <span id="language-text">EN</span> <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                
+                <!-- Dark Mode Toggle Button -->
+                <!-- <button id="dark-mode-toggle" class="text-primary hover:text-secondary px-3 py-2 font-medium flex items-center dark:text-white">
+                    <i class="fas fa-moon" id="dark-mode-icon"></i>
+                </button> -->
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-primary hover:text-secondary focus:outline-none dark:text-white">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg dark:bg-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary dark:text-white">Home</a>
+                
+                <div class="relative">
+                    <button id="services-menu-button" class="w-full text-left px-3 py-2 text-base font-medium text-primary hover:text-secondary flex justify-between items-center dark:text-white">
+                        Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="services-menu" class="hidden pl-4">
+                        <a href="#services" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">All Services</a>
+                        <a href="#sales" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">Sales Orders</a>
+                        <a href="#purchase" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">Purchase Orders</a>
+                        <a href="#ckyc" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">CKYC</a>
+                    </div>
+                </div>
+                
+                <a href="#commissions" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary dark:text-white">Commissions</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary dark:text-white">About Us</a>
+                <a href="#activities" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary dark:text-white">Activities</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary hover:text-secondary dark:text-white">Contact</a>
+                
+                <div class="relative">
+                    <button id="downloads-menu-button" class="w-full text-left px-3 py-2 text-base font-medium text-primary hover:text-secondary flex justify-between items-center dark:text-white">
+                        Downloads <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="downloads-menu" class="hidden pl-4">
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">KYC Individual (Normal)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">KYC Individual (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">KYC Company (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">Online Trading Agreement (Editable)</a>
+                        <a href="#" class="block px-3 py-2 text-sm font-medium text-gray-800 hover:text-primary dark:text-gray-200">TMS Request</a>
+                    </div>
+                </div>
+                
+                <!-- Language and Dark Mode Toggle for Mobile -->
+                <div class="flex justify-between px-3 py-2">
+                    <button id="mobile-language-toggle" class="text-primary font-medium dark:text-white">
+                        <i class="fas fa-language mr-2"></i> <span id="mobile-language-text">English</span>
+                    </button>
+                    <button id="mobile-dark-mode-toggle" class="text-primary font-medium dark:text-white">
+                        <i class="fas fa-moon mr-2" id="mobile-dark-mode-icon"></i> Dark Mode
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary text-white py-16 md:py-24 dark:bg-gray-800  ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  ">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">NIST19: Your Trusted Stock Broker</h1>
+                    <p class="text-xl mb-6">20+ years of expertise in Nepal's stock market and securities trading.</p>
+                    <p class="text-lg mb-8 italic">"To be the leading provider of Brokering and Invest Portfolio Management services in Nepal and overseas securities investments."</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition duration-300">Get Started</a>
+                        <a href="#services" class="border-2 border-white hover:border-secondary hover:text-secondary text-white px-6 py-3 rounded-md font-medium transition duration-300">Our Services</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="floating">
+                        <img src="images/bull_bear.png" alt="Stock Market" class="rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50 dark:bg-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4 dark:text-white">Our Services</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300">Comprehensive stock broking services tailored to meet your investment needs in Nepal's dynamic market.</p>
+            </div>
+                    
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Sales Orders -->
+                <div id="sales" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3 dark:text-white">Sales Orders</h3>
+                    <p class="text-gray-600 mb-4 dark:text-gray-300">Efficiently sell stocks on request for our customers with our streamlined process.</p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Real-time order execution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Competitive pricing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Instant confirmation</span>
+                        </li>
+                    </ul>
+                </div>
+                                
+                <!-- Purchase Orders -->
+                <div id="purchase" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-shopping-cart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3 dark:text-white">Purchase Orders</h3>
+                    <p class="text-gray-600 mb-4 dark:text-gray-300">Execute stock purchases on behalf of our customers with precision and speed.</p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Market and limit orders</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Portfolio diversification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Expert recommendations</span>
+                        </li>
+                    </ul>
+                </div>
+                                
+                <!-- CKYC -->
+                <div id="ckyc" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <div class="text-secondary mb-4">
+                        <i class="fas fa-id-card text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3 dark:text-white">Central KYC (CKYC)</h3>
+                    <p class="text-gray-600 mb-4 dark:text-gray-300">Simplified onboarding process with centralized KYC verification.</p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Faster onboarding</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Reduced paperwork</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Enhanced security</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+<section id="faq" class="py-16 bg-gray-50 dark:bg-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4 dark:text-white">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300">Find answers to common questions about our services.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- FAQ Category: Top Questions -->
+            <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">Top Questions</h3>
+                <div class="space-y-4">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">How do I open an account?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">To open an account, visit our Online Account Opening page and follow the instructions.</p>
+                    </details>
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">What are the trading hours?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Our trading hours are Sunday to Friday, 10:00 AM to 5:00 PM.</p>
+                    </details>
+                </div>
+            </div>
+            
+            <!-- FAQ Category: KYC -->
+            <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">KYC</h3>
+                <div class="space-y-4">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">What is KYC?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">KYC stands for Know Your Customer. It is a process of verifying the identity of our clients.</p>
+                    </details>
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">How do I submit my KYC documents?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">You can submit your KYC documents through our online portal or visit our office to submit them in person.</p>
+                    </details>
+                </div>
+            </div>
+            
+            <!-- FAQ Category: Settlement -->
+            <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">Settlement</h3>
+                <div class="space-y-4">
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">How long does settlement take?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">Settlement usually takes 2-3 business days.</p>
+                    </details>
+                    <details class="group">
+                        <summary class="flex justify-between items-center cursor-pointer p-2 bg-gray-100 dark:bg-gray-700 rounded-md">
+                            <span class="text-gray-800 dark:text-gray-300">What documents are required for settlement?</span>
+                            <i class="fas fa-plus text-gray-500 group-open:rotate-45"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300 p-2 bg-gray-200 dark:bg-gray-800 rounded-md">You will need to provide your trade confirmation, ID proof, and address proof.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Commissions Section -->
+    <section id="commissions" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4 dark:text-white">Commission Structure</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300">Transparent and competitive commission rates for all your trading needs.</p>
+            </div>
+                    
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden dark:bg-gray-700">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Instrument</th>
+                            <th class="py-3 px-4 text-left">Commission Rate</th>
+                            <th class="py-3 px-4 text-left">Minimum Commission</th>
+                            <th class="py-3 px-4 text-left">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td class="py-4 px-4 dark:text-gray-300">Equity</td>
+                            <td class="py-4 px-4 dark:text-gray-300">0.40% of transaction amount</td>
+                            <td class="py-4 px-4 dark:text-gray-300">Rs. 25</td>
+                            <td class="py-4 px-4 dark:text-gray-300">For Rs. 50,000 trade: Rs. 200</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td class="py-4 px-4 dark:text-gray-300">Government Bonds</td>
+                            <td class="py-4 px-4 dark:text-gray-300">0.10% of transaction amount</td>
+                            <td class="py-4 px-4 dark:text-gray-300">Rs. 50</td>
+                            <td class="py-4 px-4 dark:text-gray-300">For Rs. 1,00,000 trade: Rs. 100</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td class="py-4 px-4 dark:text-gray-300">Corporate Bonds & Debentures</td>
+                            <td class="py-4 px-4 dark:text-gray-300">0.20% of transaction amount</td>
+                            <td class="py-4 px-4 dark:text-gray-300">Rs. 50</td>
+                            <td class="py-4 px-4 dark:text-gray-300">For Rs. 75,000 trade: Rs. 150</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td class="py-4 px-4 dark:text-gray-300">Close-End Bonds</td>
+                            <td class="py-4 px-4 dark:text-gray-300">0.30% of transaction amount</td>
+                            <td class="py-4 px-4 dark:text-gray-300">Rs. 50</td>
+                            <td class="py-4 px-4 
+                            dark:text-gray-300">For Rs. 60,000 trade: Rs. 180</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                    
+            <div class="mt-8 bg-blue-50 p-6 rounded-lg dark:bg-gray-700">
+                <h3 class="text-xl font-semibold text-primary mb-3 dark:text-white">Additional Fees</h3>
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>DP Fee:</strong> Rs. 25 per script (charged by CDSC)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>SEBON Fee:</strong> 0.015% of transaction amount (applicable on equity only)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-secondary mt-1 mr-2"></i>
+                        <span><strong>Capital Gain Tax:</strong> As per government regulations</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-gray-50 dark:bg-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold text-primary mb-6 dark:text-white">About NIST19</h2>
+                    <p class="text-gray-600 mb-4 dark:text-gray-300">Founded in 2003, NIST19 has grown to become one of Nepal's most trusted stock brokerage firms with a strong presence across the country.</p>
+                    <p class="text-gray-600 mb-6 dark:text-gray-300">Our team of experienced professionals is dedicated to providing exceptional service and personalized investment solutions to both individual and institutional clients.</p>
+                                        
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary dark:text-white">Industry Recognition</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Awarded "Best Brokerage Firm" by Nepal Stock Exchange for 3 consecutive years.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary dark:text-white">Client Base</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Serving over 15,000 active clients with diverse investment portfolios.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary dark:text-white">Partnerships</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Strategic alliances with major banks and financial institutions in Nepal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+                        <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">Our Team</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <img src="images/GHO.png" alt="Director" class="w-40 h-40 rounded-full mx-auto mb-2">
+                                <h4 class="font-medium text-primary dark:text-white">Mr. Amit Kumar</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Director</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">20+ years experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Partners Section -->
+    <section id="partners" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4 dark:text-white">Payment Partners</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300">We've partnered with leading financial institutions to provide seamless payment solutions.</p>
+            </div>
+                    
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300 dark:border-gray-600">
+                    <img src="images/PaymentQr.png" alt="Global IME Bank" class="h-25">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300 dark:border-gray-600">
+                    <img src="images/khalti.png" alt="Khalti" class="h-25">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300 dark:border-gray-600">
+                    <img src="images/esewa.png" alt="eSewa" class="h-25">
+                </div>
+                <div class="flex justify-center items-center p-4 border rounded-lg hover:shadow-md transition duration-300 dark:border-gray-600">
+                    <img src="images/connectIPS.png" alt="ConnectIPS" class="h-25">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-16 bg-primary dark:bg-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4 dark:text-white">Our Activities</h2>
+                <p class="text-lg text-white max-w-3xl mx-auto dark:text-gray-300">Engaging with our community and sharing knowledge about stock market investments.</p>
+            </div>
+                    
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Activity 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="images/activities1.jpg" alt="Investor Workshop" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">ग्लोबल मनी विकको अवसरमा ब्रोकर- १९ ले आयाेजना गर्‍यो वित्तीय सचेतना कार्यक्रम</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Quarterly workshops to educate new investors about stock market fundamentals and investment strategies.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 15 June 2023</span>
+                            <a href="https://www.bikashnews.com/story/546114/" target="_blank" "text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Activity 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="images/activities2.jpg" alt="Annual Meet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">Annual Investor Meet</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Our flagship event bringing together investors, analysts, and industry experts to discuss market trends.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 28 March 2023</span>
+                            <a href="https://www.facebook.com/100092091390938/posts/584500867962955/?mibextid=rS40aB7S9Ucbxw6v" target="_blank"  class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Activity 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="images/activities3.jpeg" alt="CSR Initiative" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">Financial Literacy Program</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Corporate social responsibility initiative to promote financial literacy in rural communities.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 10 May 2023</span>
+                            <a href="https://balaawaz.com/news/detail/624/" target="_blank"  class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Activity 4 -->
+                <!-- <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="https://via.placeholder.com/600x400?text=Training" alt="Training" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">Employee Training Program</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Regular training sessions to keep our team updated with the latest market regulations and technologies.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 5 April 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div> -->
+                                
+                <!-- Activity 5 -->
+                <!-- <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="https://via.placeholder.com/600x400?text=Seminar" alt="Seminar" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">Women Investors Seminar</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Special seminar designed to encourage and empower women to participate in stock market investments.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 8 March 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div> -->
+                                
+                <!-- Activity 6 -->
+                <!-- <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 dark:bg-gray-800">
+                    <img src="https://via.placeholder.com/600x400?text=Award" alt="Award" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2 dark:text-white">Industry Excellence Award</h3>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">Celebrating our recognition as "Best Brokerage Firm" at the Nepal Financial Awards 2023.</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                            <span><i class="far fa-calendar-alt mr-1"></i> 20 January 2023</span>
+                            <a href="#" class="text-secondary hover:text-primary">Read More</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+                    
+            <!-- <div class="mt-10 text-center">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                    View All Activities
+                </a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Our Presence Section -->
+    <section id="presence" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4 dark:text-white">Our Presence</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300">Visit our offices in Kathmandu and Biratnagar for personalized investment services.</p>
+            </div>
+                    
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Kathmandu Office -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md dark:bg-gray-700">
+                    <div class="">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1224.0994525118!2d85.34378642689542!3d27.698703846588614!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199b6a290a4f%3A0xa3c4dc39ca2e11e8!2sNepal%20investment%20and%20Securities%20Trading!5e1!3m2!1sen!2snp!4v1750150917730!5m2!1sen!2snp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">Kathmandu Head Office</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">House no. 60,Ghumti Kumari Margh-31</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">+977 01-4595450,4580072,4590727</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">kathmandu@nist19.com</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">Sunday-Friday: 10:00 AM - 5:00 PM<br>Closed on public holidays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Biratnagar Office -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md dark:bg-gray-700">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d593.5605676684414!2d87.28781657405885!3d26.46128088519402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef75d2827e0d15%3A0x50c293d0a4b3767a!2sNepal%20Investment%20and%20Securities%20Trading%20Pvt.%20Ltd.!5e1!3m2!1sen!2snp!4v1750150874288!5m2!1sen!2snp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-4 dark:text-white">Biratnagar Branch Office</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">Motiram Margh-7, Biratnagar</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300"> +977 021-59065, 590216</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">biratnagar@nist19.com</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-secondary mt-1 mr-3"></i>
+                                <p class="dark:text-gray-300">Sunday-Friday: 10:00 AM - 5:00 PM<br>Closed on public holidays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-primary text-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+                <p class="text-lg max-w-3xl mx-auto">Get in touch with our team for any inquiries or assistance with your investments.</p>
+            </div>
+                    
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div class="bg-white text-gray-800 rounded-lg shadow-lg p-6 dark:bg-gray-700"  >
+                    <h3 class="text-xl font-semibold text-primary mb-6 dark:text-white">Send Us a Message</h3>
+                    <form id="contactForm" action="mailto:pifilax585@cristout.com" method="post" enctype="text/plain">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2 dark:text-gray-300">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2 dark:text-gray-300">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2 dark:text-gray-300">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2 dark:text-gray-300">Subject</label>
+                            <select id="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+                                <option value="">Select a subject</option>
+                                <option value="account">Account Inquiry</option>
+                                <option value="trading">Trading Services</option>
+                                <option value="kyc">KYC Process</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2 dark:text-gray-300">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-gray-800 dark:border-gray-600 dark:text-white"></textarea>
+                        </div>
+                        <button type="disable" class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium w-full transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                                
+                <!-- Contact Info -->
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4"> Support</h3>
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                            <p class="mb-4">Our representatives are available to support from Sunday to Friday, 10:00 AM to 3:00 PM, 4:00 PM to 5:00 PM.</p>
+                            <!-- <button class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium transition duration-300">
+                                <i class="fas fa-comment-dots mr-2"></i> Support
+                            </button> -->
+                        </div>
+                    </div>
+                                        
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Head Office</h4>
+                                    <p>House no. 60,Ghumti Kumari Margh-31
+                                        Old Baneshwor, Kathmandu</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Call us</h4>
+                                    <p>+977 01-4595450,4580072,4590727 +977 021-590657,590216</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p>communications@nist19.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-4 text-secondary"></i>
+                                <div>
+                                    <h4 class="font-medium">Working Hours</h4>
+                                    <p>Sunday-Friday: 10:00 AM - 5:00 PM</p>
+                                    <p>Closed on public holidays</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Grievance Handling Officer</h3>
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                            <p class="font-medium">Mr. Amit Kumar Agrahari</p>
+                            <p class="mb-2">Phone: +977 9767224116</p>
+                            <p>Email: communications@nist19.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">About NIST19</h3>
+                    <p class="mb-4 dark:text-gray-300">A leading stock brokerage firm in Nepal with over 20 years of experience in securities trading and portfolio management.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/nist19/?locale=ne_NP" target="_blank" class="hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-secondary"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                                
+                <!-- Useful Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.sebon.gov.np/" class="hover:text-secondary dark:text-gray-300">Security Board</a></li>
+                        <li><a href="https://nepalstock.com.np/" class="hover:text-secondary dark:text-gray-300">Stock Exchange</a></li>
+                        <li><a href="#" class="hover:text-secondary dark:text-gray-300">CDSC</a></li>
+                        <li><a href="https://meroshare.cdsc.com.np/#/login" class="hover:text-secondary dark:text-gray-300">Mero Share</a></li>
+                        <li><a href="https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list" class="hover:text-secondary dark:text-gray-300">UN Security Council Targeted Sanction List</a></li>
+                        <li><a href="#" class="hover:text-secondary dark:text-gray-300">APG Sanction List</a></li>
+                        <li><a href="#" class="hover:text-secondary dark:text-gray-300">National Risk Assessment Report</a></li>
+                    </ul>
+                </div>
+                                
+                <!-- Our Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#sales" class="hover:text-secondary dark:text-gray-300">Sell Stocks</a></li>
+                        <li><a href="#purchase" class="hover:text-secondary dark:text-gray-300">Purchase Stocks</a></li>
+                        <li><a href="#ckyc" class="hover:text-secondary dark:text-gray-300">Portfolio Management</a></li>
+                        <li><a href="#ckyc" class="hover:text-secondary dark:text-gray-300">CKYC</a></li>
+                        <li><a href="#services" class="hover:text-secondary dark:text-gray-300">Other Services</a></li>
+                    </ul>
+                </div>
+                                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-secondary"></i>
+                            <span class="dark:text-gray-300">NIST19 Building, Kamaladi, Kathmandu, Nepal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-secondary"></i>
+                            <span class="dark:text-gray-300">+977 1-4782309, 4782310</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-secondary"></i>
+                            <span class="dark:text-gray-300">info@nist19.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-secondary"></i>
+                            <span class="dark:text-gray-300">Sunday-Friday: 10:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                    
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center dark:text-gray-300">
+                <p>&copy; Copyright @NIST19. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-secondary text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+
+         // Splash Screen
+        const splashScreen = document.getElementById('splash-screen');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 500);
+            }, 1500); // Show for 1.5 seconds
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+                
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+                
+        // Mobile submenu toggles
+        const servicesMenuButton = document.getElementById('services-menu-button');
+        const servicesMenu = document.getElementById('services-menu');
+        const downloadsMenuButton = document.getElementById('downloads-menu-button');
+        const downloadsMenu = document.getElementById('downloads-menu');
+                
+        servicesMenuButton.addEventListener('click', () => {
+            servicesMenu.classList.toggle('hidden');
+        });
+                
+        downloadsMenuButton.addEventListener('click', () => {
+            downloadsMenu.classList.toggle('hidden');
+        });
+                
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+                
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+                
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+                
+        // Form submission (placeholder)
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+                
+        // Live chat button (placeholder)
+        // const liveChatButton = document.querySelector('.bg-secondary.hover\\:bg-blue-600');
+        // if (liveChatButton) {
+        //     liveChatButton.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         alert('Our chat support is currently offline. Please try again during business hours or contact us via phone or email.');
+        //     });
+        // }
+
+
+
+        // Language Toggle
+        const languageToggle = document.getElementById('language-toggle');
+        const languageText = document.getElementById('language-text');
+        const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+        const mobileLanguageText = document.getElementById('mobile-language-text');
+        let isEnglish = true;
+
+  
+
+    languageToggle.addEventListener('click', () => {
+        isEnglish = !isEnglish;
+        if (isEnglish) {
+            languageText.textContent = 'EN';
+        } else {
+            languageText.textContent = 'NE';
+        }
+    });
+
+    // Notice Section Toggle
+    const noticeToggle = document.getElementById('noticeToggle');
+    const noticeContainer = document.getElementById('noticeContainer');
+    const closeNotice = document.getElementById('closeNotice');
+
+    noticeToggle.addEventListener('click', () => {
+        noticeContainer.classList.toggle('open');
+        noticeToggle.classList.toggle('open');
+    });
+
+    closeNotice.addEventListener('click', () => {
+        noticeContainer.classList.remove('open');
+        noticeToggle.classList.remove('open');
+    });
+
+    // Close notice when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!noticeContainer.contains(e.target) && e.target !== noticeToggle) {
+            noticeContainer.classList.remove('open');
+            noticeToggle.classList.remove('open');
+        }
+    });
+
+    // Highlight Support Information
+    const supportButton = document.querySelector('.bg-secondary.hover\\:bg-blue-600');
+    const supportInfo = document.querySelector('.font-medium + p');
+
+    supportButton.addEventListener('click', () => {
+        supportInfo.classList.add('highlight');
+    });
+
+    // Remove highlight after 3 seconds
+    document.addEventListener('click', () => {
+        setTimeout(() => {
+            supportInfo.classList.remove('highlight');
+        }, 3000);
+    });
+
+     document.querySelectorAll('details').forEach((faq) => {
+        faq.addEventListener('toggle', () => {
+            if (faq.open) {
+                faq.querySelector('summary').classList.add('#6C88B4', 'text-white');
+            } else {
+                faq.querySelector('summary').classList.remove('bg-primary', 'text-white');
+            }
+        });
+    });    
+
+    </script>
+</body>
+</html>
+
