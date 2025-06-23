@@ -1,0 +1,132 @@
+{
+  "responses": {
+    "greeting": {
+      "keywords": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "greetings"],
+      "responses": [
+        "Hello! Welcome to NIST19. How can I assist you today?",
+        "Hi there! I'm here to help you with any questions about NIST19.",
+        "Greetings! What would you like to know about our standards and services?"
+      ]
+    },
+    "about": {
+      "keywords": ["about", "what is", "who are", "nist", "organization", "mission", "purpose"],
+      "responses": [
+        "NIST19 is the National Institute of Standards and Technology. We're a non-regulatory federal agency that develops and promotes measurement, standards, and technology to enhance productivity, facilitate trade, and improve quality of life. <a href='#about' target='_blank'>Learn more about our mission</a>",
+        "We are a physical sciences laboratory and a non-regulatory agency of the U.S. Department of Commerce. Our mission is to promote innovation and industrial competitiveness by advancing measurement science, standards, and technology."
+      ]
+    },
+    "contact": {
+      "keywords": ["contact", "phone", "address",  "reach", "get in touch"],
+      "responses": [
+        " Kathmandu Office: +977-1-4595450 / 4580072 / 4590727. Biratnagar: +977-21-590657 / 590216. <br>  <a href='tel:+977 01-4595450' class=' mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300'><i class=' mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300'></i> Call KTM Branch</a> <br> Click to send Mail: Click to send Mail:  <a href=\"https://mail.google.com/mail/?view=cm&fs=1&to=communications@nist19.com\" class=\"  mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300\" target=\"_blank\">communications@nist19.com</a>"
+      ]
+    },
+    "help": {
+      "keywords": ["help", "support", "assistance", "how to", "guide", "tutorial"],
+      "responses": [
+        "I'm here to help! You can ask me about general information about our organization.",
+        "Need assistance? I can help you find information about our services, standards, research programs, or connect you with the right resources.",
+        "What would you like to know?"
+      ]
+    },
+    "services": {
+      "keywords": ["services", "what do you do", "offerings", "provide", "capabilities"],
+      "responses": [
+        "NIST provides measurement services, standard reference materials, calibration services, and technical expertise to support U.S. industry and government.",
+        "Our key services include developing standards, conducting research, providing calibration services, and offering technical guidance to industry and government.",
+        "We offer laboratory services, standard reference materials, measurement traceability, and collaborative research opportunities. <a href='#services' target='_blank'>Learn more about our services</a>"
+      ]
+    },
+
+    
+
+      "location": {
+            "keywords": ["location", "where are you", "address", "branch", "office", "head office"],
+            "responses": [
+              "You can visit our offices in Kathmandu or Biratnagar depending on your location .<br> <a href='https://www.google.com/maps/place/Nepal+investment+and+Securities+Trading/@27.6987777,85.3432298,408m/data=!3m1!1e3!4m6!3m5!1s0x39eb199b6a290a4f:0xa3c4dc39ca2e11e8!8m2!3d27.6988034!4d85.3431224!16s%2Fg%2F11f0l4zm71?hl=en&entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D' target='_blank'><br><span class=' mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300 '>Kathmandu Branch Location</span></a> <br> <br> <a href='https://www.google.com/maps/place/Nepal+Investment+and+Securities+Trading+Pvt.+Ltd./@26.4612683,87.2879013,347m/data=!3m1!1e3!4m6!3m5!1s0x39ef75d2827e0d15:0x50c293d0a4b3767a!8m2!3d26.4613216!4d87.2879134!16s%2Fg%2F11fflxcygg?hl=en&entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D' target='_blank'><span class=' mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300 '>Biratnagar Branch Location</span></a>"
+            ]
+          },
+          "timing": {
+            "keywords": ["timing", "opening", "hours", "when open", "business hours", "working time"],
+            "responses": [
+              "We are open from Sunday to Friday, 10:00 AM to 5:00 PM in Kathmandu.",
+              "Our offices remain closed on Saturdays and public holidays."
+            ]
+          },
+          "commission": {
+            "keywords": ["commission", "brokerage", "fee", "rate", "charges", "cost"],
+            "responses": [
+              "Equity trading commission ranges from 0.24% to 0.36% based on transaction amount.",
+              "Government bond trading fees vary between Rs. 10 to 0.02%, with additional SEBON and DP charges.",
+              "Corporate bond commission ranges from 0.10% to 0.15%, plus SEBON fee and DP charge."
+            ]
+          },
+          "license": {
+            "keywords": ["license", "license number", "registered", "when started", "history"],
+            "responses": [
+              "NIST19 was licensed by SEBON on November 6, 1995 and began operation on January 22, 1997.",
+              "We are registered under license number 19 by the Securities Board of Nepal (SEBON).",
+              "We are one of six firms authorized for government bond trading in Nepal."
+            ]
+          },
+          "payment": {
+            "keywords": ["payment", "bank", "deposit", "transfer", "esewa", "khalti", "connect ips"],
+            "responses": [
+              "You can deposit funds to our account at Global IME Bank, Kamaladi branch, Account No: 07501010000740.",
+              "We accept payments via eSewa, Khalti, and Connect IPS for your convenience.",
+              "Multiple digital payment platforms are supported for easy fund transfers."
+            ]
+          },
+          "online_trading": {
+            "keywords": ["online", "tms", "trading", "platform", "login", "meroshare"],
+            "responses": [
+              "Access our trading platform at https://tms19.nepsetms.com.np for online services.",
+              "For secure trading, use your registered TMS credentials and verify OTP during login.",
+              "Ensure your Meroshare account is linked to your broker for smooth transactions."
+            ]
+          },
+          "downloads": {
+            "keywords": ["download", "form", "kyc", "agreement", "documents", "application"],
+            "responses": [
+              "You can download KYC, agreement, and TMS request forms from our Downloads section.",
+              "Account opening forms for individuals and institutions are available on our website.",
+              "All required documents can be accessed and submitted through the Downloads page."
+            ]
+          },
+          "contact_info": {
+            "keywords": ["phone", "contact", "call", "phone number", "phone no."],
+            "responses": [
+              " Kathmandu Office: +977-1-4595450 / 4580072 / 4590727. Biratnagar: +977-21-590657 / 590216. <br>  <a href='tel:+977 01-4595450' class=' mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300'><i class='fas fa-phone mr-2'></i> Call KTM Branch</a> <br> Click to send Mail:  <a href=\"https://mail.google.com/mail/?view=cm&fs=1&to=communications@nist19.com\" class=\"  mt -5px flex items-center bg-secondary hover:bg-blue-600 text-white px-4 py-2 rounded-md transition duration-300\" target=\"_blank\">communications@nist19.com</a> "
+      
+            ]
+          },
+          "email": {
+            "keywords": ["email", "email address", "mail"],
+            "responses": [
+            "Click to open the Link in Mail: <a href=\"https://mail.google.com/mail/?view=cm&fs=1&to=communications@nist19.com\" class=\"font-bold underline\" target=\"_blank\">communications@nist19.com</a>"
+            ]
+          },
+
+
+    "thanks": {
+      "keywords": ["thank you", "thanks", "appreciate", "grateful"],
+      "responses": [
+        "You're welcome! Is there anything else I can help you with today?",
+        "Happy to help! Feel free to ask if you have any other questions about NIST19.",
+        "My pleasure! I'm here whenever you need assistance with NIST information."
+      ]
+    }
+  },
+  "default_responses": [
+    "I'm sorry, I didn't quite understand that. Could you please rephrase your question  ?",
+    "I'd be happy to help! I can assist with questions about NIST standards, or general information about our organization.",
+    "I'm not sure about that specific question. You might want to ask about our standards, research, publications, or . <a href='#contact' target='_blank'>Contact us directly</a> for more specialized inquiries."
+  ],
+  "conversation_starters": [
+    "What is NIST19?",
+    "Tell me about cybersecurity standards",
+    "How can I access NIST publications?",
+    "What research does NIST conduct?",
+    "How do I contact NIST?"
+  ]
+}
